@@ -1,12 +1,11 @@
-"use client";
 import React from "react";
+import BarChart from "./BarChart";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
 type Customer = {
   email: string;
   name: string;
   address: string;
-  stock?: number;
 };
 
 type Customers = {
@@ -17,6 +16,7 @@ type Customers = {
 type Product = {
   id: string;
   name: string;
+  category: string;
   price: number;
   stock: number;
 };
@@ -37,6 +37,21 @@ interface DashboardViewProps {
   handleViewChange: (view: string) => void;
 }
 
+const aggregateProductsByCategory = (products: Product[]) => {
+  const categoryCount: { [key: string]: number } = {};
+
+  products.forEach((product) => {
+    if (categoryCount[product.category]) {
+      categoryCount[product.category]++;
+    } else {
+      categoryCount[product.category] = 1;
+    }
+  });
+
+  return categoryCount;
+};
+
+// Define DashboardView component
 const DashboardView = ({
   customers,
   products,
@@ -44,16 +59,36 @@ const DashboardView = ({
   orders,
   handleViewChange,
 }: DashboardViewProps) => {
+
+
+
   const totalCustomers = customers.buyers.length + customers.sellers.length;
   const totalOrders = orders.length;
+
+  const topProductsByStock = products.sort((a, b) => b.stock - a.stock).slice(0, 5);
+
+  const productCategories = aggregateProductsByCategory(products);
+  const categoryLabels = Object.keys(productCategories);
+  const categoryData = Object.values(productCategories);
+
+  const barChartData = {
+    labels: categoryLabels,
+    datasets: [
+      {
+        
+        data: categoryData,
+        backgroundColor: "rgba(179, 178, 109)",
+        borderColor: "rgba(179, 178, 109)",
+        borderWidth: 1,
+      },
+    ],
+  };
 
   const pieData = [
     { name: "Buyers", value: customers.buyers.length },
     { name: "Sellers", value: customers.sellers.length },
   ];
   const COLORS = ["#0088FE", "#FF8042"];
-
-  const topProductsByStock = products.sort((a, b) => b.stock - a.stock).slice(0, 5);
 
   return (
     <>
@@ -106,6 +141,7 @@ const DashboardView = ({
               ))}
             </tbody>
           </table>
+          
         </div>
         <section className="admin-role-stats-chart">
           <div className="admin-role-stats-header">
@@ -134,6 +170,12 @@ const DashboardView = ({
             </Pie>
             <Tooltip />
           </PieChart>
+        </section>
+        <section className="admin-role-stats-chart">
+          <div className="admin-role-stats-header">
+            <h3 className="admin-red-title">Product Categories</h3>
+          </div>
+          <BarChart chartData={barChartData} chartTitle="Product Categories" />
         </section>
       </section>
     </>

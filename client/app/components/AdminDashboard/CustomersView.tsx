@@ -6,6 +6,7 @@ type Customer = {
   email: string;
   name: string;
   address: string;
+  dateJoined: string;
 };
 
 type Customers = {

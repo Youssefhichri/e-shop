@@ -12,7 +12,7 @@
   background-color: red;
   color: white;
   padding: 5px 10px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   font-size: 14px;
   margin-right: 10px;
 }
@@ -36,7 +36,7 @@
 
 .featured-item {
   position: relative;
-  border-radius: 10px;
+  border-radius: 2px;
   overflow: hidden;
   color: white;
 }

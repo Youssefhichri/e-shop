@@ -158,3 +158,26 @@
     margin-left: 0;
   }
   
+
+  .star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  
+  .star-rating button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .star-rating button .star {
+    font-size: 1.5rem;
+    color: gray;
+  }
+  
+  .star-rating button.on .star {
+    color: gold;
+  }
+  

@@ -9,6 +9,7 @@ interface Order {
   nameOfproduct: string;
   category: string;
   total: number;
+  status: string; // added status field to handle order confirmation
 }
 
 const OrdersView = () => {
@@ -36,24 +37,47 @@ const OrdersView = () => {
     }
   };
 
-  const deleteOrder = async (orderId: string) => {
+  const confirmOrder = async (orderId: string) => {
     try {
-      await axios.delete(`http://localhost:8080/api/cart/orders/${orderId}`, {
+      await axios.patch(`http://localhost:8080/api/cart/orders/${orderId}/confirm`, {}, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
         },
       });
-      fetchOrders(); // we invoke it to refresh orders list after deletion
+      fetchOrders();
     } catch (error) {
-      console.error('Error deleting order:', error);
+      console.error('Error confirming order:', error);
     }
   };
 
-  const handleDeleteClick = (orderId: string) => {
+  const rejectOrder = async (orderId: string) => {
+    try {
+      await axios.patch(`http://localhost:8080/api/cart/orders/${orderId}/reject`, {}, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+      });
+      fetchOrders();
+    } catch (error) {
+      console.error('Error rejecting order:', error);
+    }
+  };
+
+  const handleConfirmClick = (orderId: string) => {
     setModalTitle('Confirmation Window');
-    setModalMessage('Are you sure you want to delete this order?');
+    setModalMessage('Are you sure you want to confirm this order?');
     setConfirmAction(() => () => {
-      deleteOrder(orderId);
+      confirmOrder(orderId);
+      setModalShow(false);
+    });
+    setModalShow(true);
+  };
+
+  const handleRejectClick = (orderId: string) => {
+    setModalTitle('Confirmation Window');
+    setModalMessage('Are you sure you want to reject this order?');
+    setConfirmAction(() => () => {
+      rejectOrder(orderId);
       setModalShow(false);
     });
     setModalShow(true);
@@ -81,6 +105,7 @@ const OrdersView = () => {
             <th>Product</th>
             <th>Category</th>
             <th>Total Price</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -88,16 +113,23 @@ const OrdersView = () => {
             <tr key={order.id}>
               <td>
                 <button
-                  className="delete-button"
-                  onClick={() => handleDeleteClick(order.id)}
+                  className="confirm-button"
+                  onClick={() => handleConfirmClick(order.id)}
                 >
-                  Delete
+                  Confirm
+                </button>
+                <button
+                  className="reject-button"
+                  onClick={() => handleRejectClick(order.id)}
+                >
+                  Reject
                 </button>
               </td>
               <td>{order.username}</td>
               <td>{order.nameOfproduct}</td>
               <td>{order.category}</td>
               <td>{order.total}</td>
+              <td>{order.status}</td>
             </tr>
           ))}
         </tbody>

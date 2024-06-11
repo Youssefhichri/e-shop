@@ -1,26 +1,21 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
 }
-
-
 .admin-dashboard {
   display: flex;
-  height: 100vh;
-  background-color: #1a252f;
-  color: #ecf0f1;
+  height: 120vh;
+  background: #ffffffe7;
+  color: #000000;
 }
 
-/* Sidebar */
 .admin-sidebar-dashboard {
-  width: 250px;
-  background-color: #2c3e50;
-  color: #ecf0f1;
+  width: 230px;
+  background-color: #880c0cdc;
+  color: #000000;
   padding: 20px;
-  box-sizing: border-box;
 }
 
 .admin-sidebar-dashboard h2 {
@@ -40,29 +35,18 @@
   cursor: pointer;
 }
 
-
+/* Main Content */
 .admin-main-content {
   flex: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
-
-/* Main title */
 .admin-main-title {
   margin-bottom: 50px;
-  font-size: 30px;
-  color: #c50a71;
+  font-size: 24px;
 }
-.admin-ex{
-  color: #e74c3c;
-}
-.admin-clusive{
-  color: #e8cac4;
-}
-
 
 .admin-header-dashboard {
   display: flex;
@@ -71,7 +55,6 @@
   margin-bottom: 20px;
 }
 
-
 .admin-stats {
   display: flex;
   justify-content: space-between;
@@ -79,7 +62,7 @@
 }
 
 .admin-stat-container {
-  background: #34495e;
+  background: #000000dc;
   padding: 20px;
   border-radius: 8px;
   width: 23%;
@@ -90,24 +73,24 @@
 .admin-stat-container h3 {
   margin: 0;
   font-size: 24px;
-  color: #ecf0f1;
+  color: #cc2929;
 }
 
 .admin-stat-container p {
   margin: 0;
-  color: #bdc3c7;
+  color: #ffffff;
 }
 
 .admin-main-section {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
   margin-top: 20px;
 }
 
-
-.admin-top-selling {
-  background: #34495e;
+.admin-top-selling,
+.admin-top-stock {
+  background: #000000;
   padding: 20px;
   border-radius: 8px;
   width: 65%;
@@ -115,65 +98,59 @@
   margin-top: 90px;
 }
 
-.admin-top-selling-header {
+.admin-top-selling-header,
+.admin-top-stock-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .admin-see-more-button {
-  background: #ecf0f1;
-  color: #000;
+  background: #a31818;
+  color: #000000;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.admin-see-more-button.admin-edge {
-  margin-left: auto;
-}
-
 .admin-see-more-button:hover {
-  background: #bdc3c7;
+  background: #bb0b0b;
 }
 
-.admin-red-title {
-  color: #e74c3c;
-}
-
-.admin-top-selling h2 {
-  margin: 0;
-}
-
-.admin-top-selling table {
+.admin-top-selling table,
+.admin-top-stock table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
 .admin-top-selling table th,
-.admin-top-selling table td {
-  border: 1px solid #7f8c8d;
+.admin-top-selling table td,
+.admin-top-stock table th,
+.admin-top-stock table td {
+  border: 1px solid #aa2121;
   padding: 8px;
   text-align: left;
 }
 
-.admin-top-selling table th {
-  background: #2c3e50;
+.admin-top-selling table th,
+.admin-top-stock table th {
+  background: #af1414d7;
 }
 
-
+/* Role Stats Chart */
 .admin-role-stats-chart {
-  background: #34495e;
+  background: #000000dc;
   padding: 20px;
   border-radius: 8px;
   width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 90px;
+  box-shadow: 0 2px 4px rgba(204, 191, 191, 0.1);
+  margin-top: 70px;
+  font-size: 12px;
 }
 
 .admin-role-stats-header {
@@ -182,12 +159,7 @@
   width: 100%;
 }
 
-
-.admin-customers-section {
-  width: 100%;
-  padding: 20px;
-}
-
+/* Filters */
 .admin-filters {
   display: flex;
   justify-content: flex-start;
@@ -198,13 +170,52 @@
 
 .admin-filters select,
 .admin-filters input {
-  padding: 5px;
-  border-radius: 4px;
-  border: 1px solid #7f8c8d;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #f7efef;
+  background-color: #e9e3e3;
+  color: #000000;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.admin-filters select:hover,
+.admin-filters input:hover {
+  border-color: #000000;
+}
+
+.admin-filters select:focus,
+.admin-filters input:focus {
+  border-color: #000000;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.admin-filters input::placeholder {
+  color: #000000;
+}
+
+.admin-filters select {
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+}
+
+.admin-filters input[type="text"] {
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
 }
 
 .admin-filters input {
   flex: 1;
+}
+
+/* Customer Section */
+.admin-customers-section {
+  width: 100%;
+  padding: 20px;
 }
 
 .admin-customers-section table {
@@ -215,13 +226,13 @@
 
 .admin-customers-section table th,
 .admin-customers-section table td {
-  border: 1px solid #7f8c8d;
+  border: 1px solid #000000;
   padding: 8px;
   text-align: left;
 }
 
 .admin-customers-section table th {
-  background: #2c3e50;
+  background: #0000009f;
 }
 
 .admin-customers-section table td .action-buttons {
@@ -238,8 +249,8 @@
 }
 
 .admin-customers-section table td button {
-  background: #e74c3c;
-  color: #ecf0f1;
+  background: #550404;
+  color: #000000;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
@@ -247,19 +258,19 @@
 }
 
 .admin-customers-section table td button.switch-role {
-  background: #27ae60;
+  background: #c6ca89;
   margin-left: 10px;
 }
 
 .admin-customers-section table td button:hover {
-  background: #c0392b;
+  background: #160d0c;
 }
 
 .admin-customers-section table td button.switch-role:hover {
-  background: #2ecc71;
+  background: #121113;
 }
 
-
+/* Products Section */
 .admin-products-section {
   width: 100%;
   padding: 20px;
@@ -269,10 +280,10 @@
   width: 100%;
   padding: 5px;
   border-radius: 4px;
-  border: 1px solid #7f8c8d;
+  border: 1px solid #000000;
   margin-bottom: 20px;
-  background-color: #fff; 
-  color: #000; 
+  background-color: #adaaaa00;
+  color: #000000;
 }
 
 .admin-products-section table {
@@ -283,22 +294,22 @@
 
 .admin-products-section table th,
 .admin-products-section table td {
-  border: 1px solid #7f8c8d;
-  padding: 8px;
+  border: 1px solid #000000;
+  padding: 13px;
   text-align: left;
 }
 
 .admin-products-section table th:first-child,
 .admin-products-section table td:first-child {
-  width: 100px; 
+  width: 100px;
 }
 
 .admin-products-section table th {
-  background: #2c3e50;
+  background: #0000009f;
 }
 
 .admin-products-section table td button {
-  background: #e74c3c;
+  background: #0c0707;
   color: #ecf0f1;
   border: none;
   padding: 5px 10px;
@@ -307,42 +318,10 @@
 }
 
 .admin-products-section table td button:hover {
-  background: #c0392b;
+  background: #000000;
 }
 
-.admin-top-stock {
-  background: #34495e;
-  padding: 20px;
-  border-radius: 8px;
-  width: 65%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-}
-
-.admin-top-stock-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.admin-top-stock table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.admin-top-stock table th,
-.admin-top-stock table td {
-  border: 1px solid #7f8c8d;
-  padding: 8px;
-  text-align: left;
-}
-
-.admin-top-stock table th {
-  background: #2c3e50;
-}
-
-
+/* Orders Section */
 .admin-orders-section {
   width: 100%;
   padding: 20px;
@@ -354,8 +333,8 @@
   margin-bottom: 20px;
   border-radius: 4px;
   border: 1px solid #7f8c8d;
-  background-color: #fff; 
-  color: #000; 
+  background-color: #ebe1e1;
+  color: #eee9e9;
 }
 
 .admin-orders-section table {
@@ -372,7 +351,7 @@
 }
 
 .admin-orders-section table th {
-  background: #2c3e50;
+  background: #0000009f;
 }
 
 .admin-orders-section table td button {
@@ -388,103 +367,124 @@
   background: #c0392b;
 }
 
-
+/* Confirmation Overlay */
 .confirmation-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
 }
 
-.confirmation-modal {
-background: #fff;
-padding: 20px;
-border-radius: 8px;
-width: 300px;
-text-align: center;
-}
-
-.confirmation-modal h3 {
-margin-bottom: 20px;
-}
-
-.confirmation-modal button {
-background: #e74c3c;
-color: #fff;
-border: none;
-padding: 8px 20px;
-border-radius: 4px;
-cursor: pointer;
-margin-right: 10px;
-}
-
-.confirmation-modal button:hover {
-background: #c0392b;
-}
-
-.confirmation-modal button:last-child {
-background: #2ecc71;
-color: #fff;
-}
-
-.confirmation-modal button:last-child:hover {
-background: #27ae60;
-}
-
-
-.admin-logout-button {
+.confirmation-content {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
   text-align: center;
-  font-size: large;
-background: #e74c3c;
-color: #ffffff;
-border:#c50a8d;
-padding: 8px 20px;
-border-radius: 4px;
-cursor: pointer;
-height: 5%;
-width: 10%;
-margin-left: 1100px;
+  box-shadow: 0 2px 10px rgba(177, 63, 63, 0.1);
+  color: #000000;
 }
 
-.admin-logout-button:hover {
-background: #c0392b;
-}
-
-
-@media screen and (max-width: 1024px) {
-.admin-dashboard {
-  flex-direction: column;
-}
-
-.admin-sidebar-dashboard {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.admin-main-content {
-  width: 100%;
-}
-}
-
-@media screen and (max-width: 768px) {
-.admin-stat-container {
-  width: 100%;
-}
-
-.admin-role-stats-chart {
-  width: 100%;
+.confirmation-actions {
+  display: flex;
+  justify-content: space-around;
   margin-top: 20px;
 }
 
-.admin-top-selling,
-.admin-top-stock {
-  width: 100%;
-  margin-top: 20px;
+.confirmation-button {
+  background: #9e180a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
 }
+
+.confirmation-button:hover {
+  background: #000000;
+}
+
+/* Toggle Switch */
+.checkbox-wrapper-51 input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+
+.checkbox-wrapper-51 .toggle {
+  position: relative;
+  display: block;
+  width: 42px;
+  height: 24px;
+  cursor: pointer;
+  transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-51 .toggle:before {
+  content: "";
+  position: relative;
+  top: 1px;
+  left: 1px;
+  width: 40px;
+  height: 22px;
+  background: #000000;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+}
+
+.checkbox-wrapper-51 .toggle span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(154, 153, 153, 0.75);
+  transition: all 0.2s ease;
+}
+
+.checkbox-wrapper-51 .toggle span svg {
+  margin: 7px;
+  fill: none;
+}
+
+.checkbox-wrapper-51 .toggle span svg path {
+  stroke: #000000;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 0;
+  transition: all 0.5s linear;
+}
+
+.checkbox-wrapper-51 input[type="checkbox"]:checked + .toggle:before {
+  background: #be1212;
+}
+
+.checkbox-wrapper-51 input[type="checkbox"]:checked + .toggle span {
+  transform: translateX(18px);
+}
+
+.checkbox-wrapper-51 input[type="checkbox"]:checked + .toggle span path {
+  stroke: #000000;
+  stroke-dasharray: 25;
+  stroke-dashoffset: 25;
+}
+
+/* Custom Colors */
+.admin-ex {
+  color: #000000;
+}
+
+.admin-clusive {
+  color: #ecf0f1;
+}
+
+.admin-red-title {
+  color: #f0ecec;
 }

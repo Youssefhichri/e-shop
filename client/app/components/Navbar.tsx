@@ -77,7 +77,7 @@ const Navbar = () => {
             <input type="text" placeholder="What are you looking for?" />
             <div className="icons">
               {role === "buyer" && (
-                <span onClick={() => handleRedirect("/favorites")}>❤️</span>
+                <span onClick={() => handleRedirect("/wishList")}>❤️</span>
               )}
               {role === "buyer" && (
                 <span onClick={() => handleRedirect("/panier")}>🛒</span>

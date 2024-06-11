@@ -24,7 +24,7 @@ const FeaturedProducts = () => {
 
         <div className="featured-item medium">
           <img
-            src="https://m.media-amazon.com/images/I/4104ys-ac9L._AC_.jpg"
+            src="https://static.vecteezy.com/system/resources/previews/002/102/423/non_2x/black-gold-leather-upholstery-background-for-cosmetic-product-with-3d-packaging-free-vector.jpg"
             alt="Women's Collections"
           />
           <div className="featured-text">
@@ -35,7 +35,7 @@ const FeaturedProducts = () => {
         </div>
         <div className="featured-item small">
           <img
-            src="https://rocknroller.tv/cdn/shop/products/845b48df95edd6855ba376665347ab2b.jpg?v=1697616032&width=1500"
+            src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2016/10/13/16/amazon-echo-box.jpg?width=1200&height=900&fit=crop"
             alt="Speakers"
           />
           <div className="featured-text">
@@ -46,11 +46,11 @@ const FeaturedProducts = () => {
         </div>
         <div className="featured-item small">
           <img
-            src="https://img.freepik.com/premium-psd/new-arrival-earbuds-headphone-product-green-black-social-media-post-banner_265571-140.jpg"
+            src="https://img.freepik.com/premium-photo/neon-blue-light-wireless-headphones-pictures-black-background-ai-generated-art_848903-5915.jpg"
             alt="Perfume"
           />
           <div className="featured-text">
-            <h3>Perfume</h3>
+            <h3>Headphones</h3>
             <p>GUCCI INTENSE OUD EDP</p>
             <a href="#">Shop Now</a>
           </div>

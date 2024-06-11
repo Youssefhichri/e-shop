@@ -1,6 +1,4 @@
-"use client"
 import React, { useState } from "react";
-
 
 interface ProductsViewProps {
   products: {
@@ -21,14 +19,10 @@ const ProductsView = ({
   setSearchProductId,
   deleteProduct,
 }: ProductsViewProps) => {
-
-
-
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchProductId(event.target.value);
   };
 
- 
   const filteredProducts = products.filter((product) =>
     product.id.toString().toLowerCase().includes(searchProductId.toLowerCase())
   );

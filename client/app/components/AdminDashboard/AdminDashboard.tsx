@@ -7,6 +7,7 @@ import ProductsView from './ProductsView';
 import OrdersView from './OrdersView';
 import ConfirmationWindow from './ConfirmationWindow';
 import '../../CSS/adminDashboard.css';
+import BarChart from "./BarChart";
 
 type Customer = {
   email: string;
